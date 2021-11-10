@@ -30,15 +30,9 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding.calendarView.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
             binding.textviewFirst.setText(String.format("Date %d/%d/%d", dayOfMonth, month, year));
+            NavHostFragment.findNavController(FirstFragment.this)
+                    .navigate(R.id.action_FirstFragment_to_itemFragment);
         });
-
-//        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(FirstFragment.this)
-//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-//            }
-//        });
     }
 
     @Override
