@@ -13,8 +13,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.pmdm.sharemybike.placeholder.PlaceholderContent;
-
 public class BikesContent {
 
     //List of all the bikes to be listed in the RecyclerView

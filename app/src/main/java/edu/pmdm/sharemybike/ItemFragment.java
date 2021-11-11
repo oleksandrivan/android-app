@@ -13,8 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.pmdm.sharemybike.bikes.BikesContent;
-import edu.pmdm.sharemybike.placeholder.PlaceholderContent;
-
 /**
  * A fragment representing a list of Items.
  */
@@ -65,7 +63,7 @@ public class ItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(BikesContent.ITEMS));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(BikesContent.ITEMS, context));
         }
         return view;
     }

@@ -2,7 +2,10 @@ package edu.pmdm.sharemybike;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +25,11 @@ import java.util.List;
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
     private final List<Bike> mValues;
+    private Context context;
 
-    public MyItemRecyclerViewAdapter(List<Bike> items) {
+    public MyItemRecyclerViewAdapter(List<Bike> items, Context context) {
         mValues = items;
+        this.context = context;
     }
 
     @Override
@@ -46,7 +51,10 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mBtnMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO Add mail action
+                if(context instanceof BikeActivity) {
+                    ((BikeActivity) context).sendEmail(mItem.getEmail(), mItem.getOwner(),
+                            mItem.getLocation(), mItem.getCity());
+                }
             }
         });
     }
