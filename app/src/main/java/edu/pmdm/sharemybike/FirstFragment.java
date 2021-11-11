@@ -33,7 +33,6 @@ public class FirstFragment extends Fragment {
         binding.calendarView.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
             String date = String.format("%d/%d/%d", dayOfMonth, month, year);
             binding.textviewFirst.setText(String.format("Date %s",date));
-            String updated = String.valueOf(binding.textviewFirst.getText());
             SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);;
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString(getString(R.string.chosen_date), date);
