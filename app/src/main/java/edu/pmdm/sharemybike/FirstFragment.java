@@ -47,10 +47,8 @@ public class FirstFragment extends Fragment {
     }
 
     private void showWelcome() {
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        String name = sharedPref.getString(getString(R.string.name), "");
-        String email = sharedPref.getString(getString(R.string.email), "");
-        String welcomeText = String.format("Welcome %s! [%s]", name, email);
+        User user = User.getInstance();
+        String welcomeText = String.format("Welcome %s! [%s]", user.getName(), user.getEmail());
         int duration = Toast.LENGTH_LONG;
         Toast toast = Toast.makeText(getContext(), welcomeText, duration);
         toast.show();

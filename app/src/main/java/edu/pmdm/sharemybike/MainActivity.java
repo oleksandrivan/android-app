@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInAccount(task);
@@ -54,14 +53,9 @@ public class MainActivity extends AppCompatActivity  {
 
     private void handleSignInAccount(Task<GoogleSignInAccount> task) {
         GoogleSignInAccount account = task.getResult();
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);;
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(getString(R.string.name), account.getDisplayName());
-        editor.putString(getString(R.string.email), account.getEmail());
-        editor.apply();
+        User.getInstance().setName(account.getDisplayName());
+        User.getInstance().setEmail(account.getEmail());
         Intent i = new Intent(getApplicationContext(), BikeActivity.class);
-        i.putExtra(getString(R.string.name),account.getDisplayName());
-        i.putExtra(getString(R.string.email),account.getEmail());
         startActivity(i);
     }
 }

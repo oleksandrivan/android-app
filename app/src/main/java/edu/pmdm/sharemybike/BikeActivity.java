@@ -39,15 +39,6 @@ public class BikeActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         BikesContent.loadBikesFromJSON(getApplicationContext());
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        Intent inputIntent = getIntent();
-        String name = getString(R.string.name);
-        String email = getString(R.string.email);
-        sharedPref
-                .edit()
-                .putString(name, inputIntent.getStringExtra(name))
-                .putString(email, inputIntent.getStringExtra(email))
-                .apply();
     }
 
     @Override
