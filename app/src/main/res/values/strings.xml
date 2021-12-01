@@ -9,5 +9,7 @@
 
     <string name="hello_first_fragment">Select the date</string>
     <string name="chosen_date">date</string>
+    <string name="name">name</string>
+    <string name="email">e-mail</string>
     <string name="email_body">"Dear Mr/Mrs %s:\nI\'d like to use your bike at %s (%s)\nfor the following date: %s\nCan you confirm its availability?\nKindest regards"</string>
 </resources>
