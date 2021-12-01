@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareMyBike">
         <activity
+            android:name=".MainPanelActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main_panel"
+            android:theme="@style/Theme.ShareMyBike.NoActionBar" />
+        <activity
             android:name=".BikeActivity"
             android:exported="false"
             android:label="@string/title_activity_bike"
