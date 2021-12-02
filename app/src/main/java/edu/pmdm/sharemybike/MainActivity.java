@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity  {
         GoogleSignInAccount account = task.getResult();
         User.getInstance().setName(account.getDisplayName());
         User.getInstance().setEmail(account.getEmail());
-        Intent i = new Intent(getApplicationContext(), BikeActivity.class);
+        Intent i = new Intent(getApplicationContext(), MainPanelActivity.class);
         startActivity(i);
     }
 }
