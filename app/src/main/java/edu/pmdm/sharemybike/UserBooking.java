@@ -27,7 +27,9 @@ public class UserBooking {
     }
 
     public void addToDatabase(){
-        DatabaseReference database= FirebaseDatabase.getInstance().getReference();
+        DatabaseReference database= FirebaseDatabase
+                .getInstance("https://sharemybike-4333d-default-rtdb.europe-west1.firebasedatabase.app/")
+                .getReference();
         String key= database.child("booking_requests").push().getKey();
         Map<String, Object> childUpdates = new HashMap<>();
         database.child("booking_requests/"+key).setValue(this);

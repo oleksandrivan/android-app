@@ -63,7 +63,7 @@ public class BikeFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(BikesContent.ITEMS, context));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(context));
         }
         return view;
     }

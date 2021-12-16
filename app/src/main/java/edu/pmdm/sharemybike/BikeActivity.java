@@ -38,7 +38,6 @@ public class BikeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_bike);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        BikesContent.loadBikesFromJSON(getApplicationContext());
     }
 
     @Override
