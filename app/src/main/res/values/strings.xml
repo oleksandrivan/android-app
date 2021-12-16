@@ -23,5 +23,5 @@
     <string name="menu_home">Available Bikes</string>
     <string name="menu_gallery">Date Selection</string>
     <string name="menu_slideshow">Register My Bike</string>
-    <string name="menu_slideshow2">Available Bikes Map</string>
+    <string name="menu_maps">Available Bikes Map</string>
 </resources>

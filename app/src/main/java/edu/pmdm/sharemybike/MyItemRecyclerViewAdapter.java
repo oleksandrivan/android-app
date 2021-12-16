@@ -42,7 +42,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     private static final String TAG = "MyItemRecyclerViewAdapter";
 
-    private List<Bike> mValues = new ArrayList<>();
+    public static List<Bike> BIKES = new ArrayList<>();
     private Context context;
     private DatabaseReference mDatabase;
     private StorageReference mStorageReference;
@@ -53,7 +53,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     }
 
     private void loadBikesList() {
-        if(mValues.isEmpty()) {
+        if(BIKES.isEmpty()) {
             mDatabase = FirebaseDatabase
                     .getInstance("https://sharemybike-4333d-default-rtdb.europe-west1.firebasedatabase.app/")
                     .getReference();
@@ -65,7 +65,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     for (DataSnapshot productSnapshot : snapshot.getChildren()) {
                         Bike bike = productSnapshot.getValue(Bike.class);
                         downloadPhoto(bike);
-                        mValues.add(bike);
+                        BIKES.add(bike);
                     }
                     notifyDataSetChanged();
                 }
@@ -91,7 +91,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     String url = "gs://" + taskSnapshot.getStorage().getBucket() + "/images/" + taskSnapshot.getStorage().getName();
 
                     Log.d(TAG, "Loaded " + url);
-                    for (Bike c : mValues) {
+                    for (Bike c : BIKES) {
                         if (c.getImage().equals(url)) {
                             c.setPhoto(BitmapFactory.decodeFile(localFile.getAbsolutePath()));
                             notifyDataSetChanged();
@@ -114,7 +114,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Bike mItem = mValues.get(position);
+        Bike mItem = BIKES.get(position);
         holder.mItem = mItem;
         holder.mPhoto.setImageBitmap(mItem.getPhoto());
         holder.mCity.setText(mItem.getCity());
@@ -136,7 +136,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return BIKES.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

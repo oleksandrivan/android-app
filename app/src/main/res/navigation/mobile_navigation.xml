@@ -26,4 +26,10 @@
         android:name="edu.pmdm.sharemybike.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="edu.pmdm.sharemybike.MapsFragment"
+        android:label="@string/menu_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>
