@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -129,9 +130,20 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 String date = sharedPref.getString("date", "");
                 UserBooking userBooking = new UserBooking(User.getInstance().getUid(),
                         User.getInstance().getEmail(), mItem.getEmail(), mItem.getCity(), date);
+                showBooking(date);
                 userBooking.addToDatabase();
+                holder.mBtnMail.setImageDrawable(context.getResources()
+                        .getDrawable(android.R.drawable.checkbox_on_background));
             }
         });
+    }
+
+    private void showBooking(String date) {
+        String bookingText = String.format("Booking requested for Date:  %s!", date);
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, bookingText, duration);
+        toast.show();
+
     }
 
     @Override
