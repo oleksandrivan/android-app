@@ -22,6 +22,6 @@
 
     <string name="menu_home">Available Bikes</string>
     <string name="menu_gallery">Date Selection</string>
-    <string name="menu_slideshow">Register My Bike</string>
+    <string name="menu_register">Register My Bike</string>
     <string name="menu_maps">Available Bikes Map</string>
 </resources>
